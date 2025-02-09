@@ -11,6 +11,40 @@ int main() {
 }
 ```
 
+## Random
+```cpp
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+bool getRandomBoolean() {
+    bool arr[] = {true, false}; // Array containing true and false
+    std::srand(std::time(0));   // Seed the random number generator
+    int randomIndex = std::rand() % 2; // Generate a random index (0 or 1)
+    return arr[randomIndex];
+}
+
+int getRandomFromList(const int arr[], int size) {
+    std::srand(std::time(0));  // Seed the random number generator
+    int randomIndex = std::rand() % size; // Generate a random index
+    return arr[randomIndex];
+}
+
+int main() {
+    // Random Boolean
+    bool randomValueBool = getRandomBoolean();
+    std::cout << std::boolalpha << "Random Boolean: " << randomValueBool << std::endl;
+    
+    // Random Integer
+    int arr[] = {10, 20, 30, 40, 50}; // Array of integers
+    int size = sizeof(arr) / sizeof(arr[0]); // Calculate the number of elements
+    int randomValueInt = getRandomFromList(arr, size);
+    std::cout << "Random Integer: " << randomValueInt << std::endl;
+    
+    return 0;
+}
+```
+
 ## Input / Output
 ### Input
 ```cpp
